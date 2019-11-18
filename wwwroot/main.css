@@ -1,0 +1,60 @@
+﻿body {
+    background-color: black;
+    color: white;
+}
+
+/*cabeçalho*/
+.cabecalho {
+    background-color: rgb(37, 82, 126);
+    color: white;
+}
+
+    .cabecalho a {
+        padding: 0px 20px;
+        text-decoration: none;
+        color: rgb(200,200,200);
+    }
+
+        .cabecalho a:hover {
+            text-decoration: none;
+            color: white;
+        }
+/*Navegação*/
+.navegacao {
+    background-color: rgb(20,58,86);
+}
+
+    .navegacao a {
+        padding: 0px 20px;
+        text-decoration: none;
+        color: rgb(200,200,200);
+    }
+
+        .navegacao a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+/*Conteudo*/
+.conteudo {
+    background-color: white;
+    color: black;
+}
+
+/*Rodapé*/
+.rodape {
+    background-color: rgb(26, 62, 98);
+    color: rgb(93,126,151);
+}
+
+.sociais a {
+    font-size: 1.5em;
+    padding: 0px 20px;
+    text-decoration: none;
+    color: rgb(200,200,200);
+}
+
+    .sociais a:hover {
+        text-decoration: none;
+        color: white;
+    }
