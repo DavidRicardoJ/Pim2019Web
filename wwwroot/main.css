@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: black;
+    background-color: rgb(20, 58, 86);
     color: white;
 }
 
@@ -37,10 +37,13 @@
 
 /*Conteudo*/
 .conteudo {
-    background-color: white;
-    color: black;
+    background-color: rgb(20,58,86);
+    color: white;
 }
-
+.titulo {
+    color: black;
+    font-weight: bold;
+}
 /*Rodapé*/
 .rodape {
     background-color: rgb(26, 62, 98);
@@ -49,7 +52,7 @@
 
 .sociais a {
     font-size: 1.5em;
-    padding: 0px 20px;
+    padding: 0px 30px;
     text-decoration: none;
     color: rgb(200,200,200);
 }
@@ -58,3 +61,5 @@
         text-decoration: none;
         color: white;
     }
+
+
