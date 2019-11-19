@@ -40,6 +40,7 @@
     background-color: rgb(20,58,86);
     color: white;
 }
+
 .titulo {
     color: black;
     font-weight: bold;
@@ -62,4 +63,13 @@
         color: white;
     }
 
+.imagem {
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
 
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
