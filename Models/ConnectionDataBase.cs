@@ -88,5 +88,34 @@ namespace Pim2019WEB.Models
 
         }
 
+        public bool SqlExecuteNonQuery(string query)   //execulta comandos sql que não retornam dados.
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    OpenConnection();
+                }
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.CommandText = query;
+                sqlCommand.Connection = conn;
+                sqlCommand.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (SqlException )
+            {
+                return false;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }

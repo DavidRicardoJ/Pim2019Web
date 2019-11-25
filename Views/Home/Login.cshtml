@@ -1,0 +1,40 @@
+﻿@model Pim2019WEB.Models.Login
+@{
+    ViewData["Title"] = "Login";
+}
+    
+<h1>Login</h1>
+<div class="container" >
+    <div class="row" style="justify-content:center">
+        <div class="col-md-4">
+            <form class="form-signin" asp-controller="Home" asp-action="Login" method="post" >
+                <div class="text-center mb-4">
+                    <img class="mb-4" src="~/img/PimLogo.png" alt="" width="85" height="85">
+                    <h1 class="h4 mb-3 font-weight-normal">Pim Car Fleet</h1>
+                </div>
+
+                <div class="form-label-group" asp-validation-summary="All">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" asp-for="Email">
+                    <label asp-for="Email">Email address</label>
+                    <span asp-validation-for="Email" class="text-danger"> </span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" asp-for="Senha">
+                    <label asp-for="Senha">Password</label>
+                    <span asp-validation-for="Senha" class="text-danger"> </span>
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me" asp-for="RememberMe"> Remember me
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <p class="mt-5 mb-3 text-muted text-center">© @DateTime.Now.Year</p>
+            </form>
+        </div>
+    </div>
+   
+</div>

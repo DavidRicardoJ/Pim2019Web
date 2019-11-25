@@ -9,10 +9,28 @@ namespace Pim2019WEB.Controllers
 {
     public class RelatorioController : Controller
     {
-        public IActionResult Index()
+      
+
+        public IActionResult Relatorio()
         {
-            Abastecimento a = new Abastecimento();               
-            return View(a.ListaAbastecimento());
+            return View();
+        }
+        public IActionResult SimpleSearch(DateTime? minDate, DateTime? maxDate)
+        {
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now.Date;
+            }
+
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            Abastecimento a = new Abastecimento();
+
+            return View(a.ListaAbastecimento(minDate, maxDate));
         }
     }
 }

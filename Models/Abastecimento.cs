@@ -39,13 +39,19 @@ namespace Pim2019WEB.Models
         {
         }
 
-        public List<Abastecimento> ListaAbastecimento()
+        public List<Abastecimento> ListaAbastecimento(DateTime? minDate, DateTime? maxDate)
         {
+            DateTime dataInicial =(DateTime) minDate;
+            string data1 = dataInicial.ToShortDateString();
+
+            DateTime dataFinal = (DateTime)maxDate;
+            string data2 = dataFinal.ToShortDateString();
+
             ConnectionDataBase conn = new ConnectionDataBase();
-            string sqlCmd = "SELECT FORMAT (getdate(), 'dd/MM/yyyy') as 'Data' , tc.razaoSocial AS 'Razão Social',tv.placa AS 'Placa',  tmv.modelo AS 'Modelo', tmv2.marca AS 'Marca', " +
+            string sqlCmd = "SELECT FORMAT (ta.data, 'dd/MM/yyyy') as 'Data' , tc.razaoSocial AS 'Razão Social',tv.placa AS 'Placa',  tmv.modelo AS 'Modelo', tmv2.marca AS 'Marca', " +
                             "tf.razaoSocial AS 'Fornecedor',tc2.combustivel AS 'Combustivel' ,convert(decimal(10, 2), (ta.valorTotal / ta.valorLitro)) AS 'Litros',ta.valorLitro AS 'Valor/Litro', ta.valorTotal AS 'Valor Total' " +
                             "FROM dbo.tbAbastecimento ta, dbo.tbVeiculo tv, dbo.tbCliente tc, dbo.tbMarcaModelo tmm, dbo.tbModeloVeiculo tmv, dbo.tbMarcaVeiculo tmv2, dbo.tbFornecedor tf, dbo.tbCombustivel tc2 " +
-                            "WHERE ta.idVeiculo = tv.idVeiculo AND tv.idVeiculo = tmm.idVeiculo AND tmm.idModeloVeiculo = tmv.idModeloVeiculo AND tmm.idMarcaVeiculo = tmv2.idMarcaVeiculo AND tv.idCliente = tc.idCliente AND tf.idFornecedor = ta.idFornecedor AND tc2.idCombustivel = ta.idCombustivel; ";
+                            $"WHERE ta.idVeiculo = tv.idVeiculo AND tv.idVeiculo = tmm.idVeiculo AND tmm.idModeloVeiculo = tmv.idModeloVeiculo AND tmm.idMarcaVeiculo = tmv2.idMarcaVeiculo AND tv.idCliente = tc.idCliente AND tf.idFornecedor = ta.idFornecedor AND tc2.idCombustivel = ta.idCombustivel  AND format(ta.data,'dd/MM/yyyy') BETWEEN	('{data1}') AND ('{data2}') ; ";
            
             return conn.DataReaderSQL(sqlCmd);
         }
